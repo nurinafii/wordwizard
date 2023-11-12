@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>CRUD App</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="photon.min.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #343f64, #010b26);
+            color: white;
+            display: flex;
+            flex-direction: column; /* Adjust to column layout */
+            align-items: center;
+            min-height: 100vh;
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        header {
+            background-color: #010b26;
+            padding: 15px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menuItem {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .menuItem a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.5s;
+        }
+        .menuItem a:hover {
+            color: #757575; /* Grey */
+        }
+
+        .logo {
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .mainWrapper {
+            background-color: rgba(26, 25, 25, 0.8);
+            padding: 80px 20px 20px;
+            border-radius: 10px;
+            width: 60%;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 60px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 80%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            color: black;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .btn {
+            background-color: #343f64;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1f2c4e;
+        }
+
+        header {
+            background-color: #010b26;
+            padding: 15px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.5s;
+        }
+
+        nav a:hover {
+            color: #757575; /* Grey */
+        }
+
+        .sticky-notes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px; /* Adjust as needed */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+
+        .sticky-note {
+            background-color: #ede2a7;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 0px;
+            color: black;
+            width: 200px;
+            height: 200px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.title h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+    h4 {
+        font-family: 'Arial', sans-serif; /* Use Arial as the primary font */
+        font-weight: bold; /* Set the font weight to bold */
+    }
+    footer {
+            background: linear-gradient(to right, #343f64, #1f2c4e);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        .rights-reserved {
+            font-size: 14px;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo">Word Wizard</div>
+        <nav>
+            <a href="worddisplay.html">Home</a>
+            <a href="crudwotd.html">Word of The Day</a>
+            <a href="aboutus.html">About Us</a>
+        </nav>
+    </header>
+
+    <div class="mainWrapper">
+        <h1>WORD OF THE DAY</h1>
+        <h5>UNLEASH THE JOY OF LANGUAGE!</h5>
+        <h5>SHARE YOUR FAVOURITE WORD OF THE DAY WITH US!</h5>
+        <form>
+            <div class="form-group">
+                <label>Your Name:</label>
+                <input id="fileName" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Favourite Words:</label>
+                <textarea id="fileContents" class="form-control" rows="5"></textarea>
+            </div>
+        </form>
+        <button id="btnCreate" class="btn">Post</button>
+        <button id="btnRead" class="btn">Read</button>
+        <button id="btnDelete" class="btn">Delete Post </button>
+        <button id="btnUpdate" class="btn">Update</button>
+    </div>
+    <div class="title">
+        <h2>Here's the whole world's favourite words!</h2>
+    </div>
+    <div class="sticky-notes-container" id="sticky-notes-container"></div>
+    <script src="crud.js"></script>
+
+</body>
+</html>
